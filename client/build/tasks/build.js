@@ -10,6 +10,12 @@ var assign = Object.assign || require('object.assign');
 var notify = require('gulp-notify');
 var browserSync = require('browser-sync');
 var htmlmin = require('gulp-htmlmin');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
+};
 
 // transpiles changed es6 files to SystemJS format
 // the plumber() call prevents 'pipe breaking' caused
@@ -41,6 +47,15 @@ gulp.task('build-css', function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('build-sass', function() {
+  return gulp.src(paths.sass)
+    .pipe(changed(paths.output, {extension: '.sass'}))
+    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(paths.output, {extension: '.css'}))
+    .pipe(browserSync.stream());
+});
+
 // this task calls the clean task (located
 // in ./clean.js), then runs the build-system
 // and build-html tasks in parallel
@@ -48,7 +63,7 @@ gulp.task('build-css', function() {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-system', 'build-html', 'build-css'],
+    ['build-system', 'build-html', 'build-css', 'build-sass'],
     callback
   );
 });

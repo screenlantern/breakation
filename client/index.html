@@ -2,11 +2,12 @@
 <html>
   <head>
     <title>Aurelia</title>
+    <link rel="import" href="bower_components/ress/ress.css">
     <!--The FontAwesome version is locked at 4.6.3 in the package.json file to keep this from breaking.-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="jspm_packages/npm/font-awesome@4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="dist/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="bower_components/polymer/polymer.html">
   </head>
 
@@ -21,7 +22,9 @@
     <!-- has fixed the issues with their implementation with these fixes being distributed with the  -->
     <!-- Windows 10 Anniversary Update on 2 August 2016. Once that update has pushed out, you may    -->
     <!-- consider removing bluebird from your project and simply using native promises if you do     -->
-    <!-- not need to support Internet Explorer.                                                      -->
+    <!-- not need to support Internet Explorer. -->
+
+
     <script src="jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js"></script>
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>

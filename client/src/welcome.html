@@ -1,20 +1,28 @@
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<style is="custom-style">
+paper-button.mine {
+  background: var(--paper-teal-700);
+  color: #f6f6f6;
+  font-size: 22px;
+}
+h1{
+  color: var(--light-theme-text-color);
+  margin-bottom: 0;
+}
+p{
+  color: var(--light-theme-secondary-color);
+}
+</style>
 <template>
-  <section class="au-animate">
-    <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
-      <div class="form-group">
-        <label for="fn">First Name</label>
-        <input type="text" value.bind="firstName" class="form-control" id="fn" placeholder="first name">
-      </div>
-      <div class="form-group">
-        <label for="ln">Last Name</label>
-        <input type="text" value.bind="lastName" class="form-control" id="ln" placeholder="last name">
-      </div>
-      <div class="form-group">
-        <label>Full Name</label>
-        <p class="help-block">${fullName | upper}</p>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+  <section class="welcome au-animate">
+    <div class="page-host">
+      <h1>BREAKATION</h1>
+      <p class="summary-title">
+        APP TO BOOK ALL YOUR HOLIDAYS OFF,<br> AT YOUR MANAGERS DISCRETION!
+      </p>
+      <br>
+      <br>
+      <paper-button click.delegate="signin()" class="mine" raised>Sign in</paper-button>
+    </div>
   </section>
 </template>
