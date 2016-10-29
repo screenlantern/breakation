@@ -10,10 +10,10 @@ exports.register = function(server, options, next) {
 
   server.route({
     method: 'GET',
-    path: '/books',
+    path: '/users',
     handler: function (request, reply) {
 
-        db.books.find((err, docs) => {
+        db.users.find((err, docs) => {
 
             if (err) {
                 return reply(Boom.wrap(err, 'Internal MongoDB error'));
@@ -83,7 +83,7 @@ exports.register = function(server, options, next) {
     method: 'PATCH',
     path: '/users/{id}',
     handler: function (request, reply) {
-      db.books.update({
+      db.users.update({
             _id: request.params.id
         }, {
             $set: request.payload

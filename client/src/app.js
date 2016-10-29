@@ -1,12 +1,21 @@
-export class App {
-  configureRouter(config, router) {
-    config.title = 'Aurelia';
-    config.map([
-      { route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome',      nav: true, title: 'Welcome' },
-      { route: 'users',         name: 'users',        moduleId: 'users',        nav: true, title: 'Github Users' },
-      { route: 'login',  name: 'login', moduleId: 'login', nav: 'false', title: '' }
-    ]);
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-    this.router = router;
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to React</h2>
+        </div>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    );
   }
 }
+
+export default App;

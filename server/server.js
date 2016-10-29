@@ -9,7 +9,7 @@ server.connection({
   port: 3000
 });
 
-server.app.db = mongojs('holidaynext', ['users']);
+server.app.db = mongojs('breakation', ['users']);
 
 //Load plugins and start server
 server.register([
