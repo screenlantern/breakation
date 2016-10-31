@@ -7,6 +7,12 @@ const Joi = require('joi');
 exports.register = function(server, options, next) {
 
   const db = server.app.db;
+  const schema = {
+                username: Joi.string().trim().min(5).max(50).required(),
+                email: Joi.string().email().trim().required(),
+                avatar: Joi.string().trim().min(8).max(100),
+                hashed_password: Joi.string()
+            };
 
   server.route({
     method: 'GET',
@@ -30,7 +36,7 @@ exports.register = function(server, options, next) {
     path: '/users/{id}',
     handler: function (request, reply) {
 
-        db.books.findOne({
+        db.users.findOne({
             _id: request.params.id
         }, (err, doc) => {
 
@@ -69,12 +75,7 @@ exports.register = function(server, options, next) {
     },
     config: {
         validate: {
-            payload: Joi.object({
-                username: Joi.string().trim().min(5).max(50).required(),
-                email: Joi.string().email().trim().required(),
-                avatar: Joi.string().trim().min(8).max(100),
-                hashed_password: Joi.string()
-            })
+            payload: Joi.object(schema)
         }
     }
   });
@@ -102,12 +103,7 @@ exports.register = function(server, options, next) {
     },
     config: {
         validate: {
-            payload: Joi.object({
-                username: Joi.string().trim().min(5).max(50).required(),
-                email: Joi.string().email().trim().required(),
-                avatar: Joi.string().trim().min(8).max(100),
-                hashed_password: Joi.string()
-            }).required().min(1)
+            payload: Joi.object(schema).required().min(1)
         }
     }
   });
