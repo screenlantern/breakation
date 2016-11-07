@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('hapi');
+const CorsHeaders = require('hapi-cors-headers');
 const mongojs = require('mongojs');
 
 // Create a server with a host and port
@@ -20,9 +21,8 @@ server.register([
     throw err;
   }
 
-  // Start the server
-  server.start((err) => {
-    console.log('Server running at:', server.info.uri);
-  });
-
 });
+
+// Start the server
+server.ext('onPreResponse', CorsHeaders);
+server.start((err) => console.log('Started at:', server.info.uri));

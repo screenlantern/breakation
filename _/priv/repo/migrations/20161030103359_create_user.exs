@@ -10,9 +10,10 @@ defmodule Server.Repo.Migrations.CreateUser do
       add :email, :string
       add :encrypted_password, :string
       add :admin, :boolean 
-      add :last_sign_in_at, :string
+      add :last_sign_in_at, :datetime
       timestamps()
     end
-    
+
   end
 end
+§
