@@ -23,6 +23,7 @@
     "hapi-cors-headers": "^1.0.0",
     "joi": "^9.0.4",
     "mongojs": "^2.4.0",
-    "node-uuid": "^1.4.7"
+    "node-uuid": "^1.4.7",
+    "redis": "^2.6.3"
   }
 }

@@ -1,5 +1,4 @@
 'use strict';
-
 const Boom = require('boom');
 const uuid = require('node-uuid');
 const Joi = require('joi');
@@ -14,7 +13,6 @@ const schema = {
   admin: Joi.boolean().required()
 };
 
-
 const hashPassword = (password, cb) => {
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, (err, hash) => {
@@ -23,7 +21,6 @@ const hashPassword = (password, cb) => {
   })
 }
 
-
 exports.register = function(server, options, next) {
 
   const db = server.app.db;
@@ -31,7 +28,7 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'GET',
     path: '/api/users',
-    handler: function (req, res) {
+    handler: (req, res) => {
       db.users.find((err, doc) => {
 
           if (err) {
@@ -47,7 +44,7 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'GET',
     path: '/api/users/{id}',
-    handler: function (req, res) {
+    handler: (req, res) => {
 
         db.users.findOne({
             _id: req.params.id
@@ -70,7 +67,7 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'POST',
     path: '/api/users',
-    handler: function (req, res) {
+    handler: (req, res) => {
 
         const user = req.payload;
 
@@ -96,7 +93,7 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'PATCH',
     path: '/api/users/{id}',
-    handler: function (req, res) {
+    handler: (req, res) => {
       db.users.update({
             _id: req.params.id
         }, {
@@ -124,7 +121,7 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'POST',
     path: '/api/createadmin',
-    handler: function (req, res) {
+    handler: (req, res) => {
 
         const user = req.payload;
 
@@ -155,7 +152,6 @@ exports.register = function(server, options, next) {
         }
     }
   });
-
 
   return next();
 };

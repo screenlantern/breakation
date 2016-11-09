@@ -13,15 +13,19 @@ server.connection({
 server.app.db = mongojs('breakation', ['users']);
 
 //Load plugins and start server
-server.register([
-  require('./routes/users')
-], (err) => {
+server.register(require('hapi-auth-jwt2'), (err) => {
+  server.register([
+    require('./routes/authenticateUsers'),
+    require('./routes/users')
+  ], (err) => {
 
-  if (err) {
-    throw err;
-  }
+    if (err) {
+      throw err;
+    }
 
+  });
 });
+
 
 // Start the server
 server.ext('onPreResponse', CorsHeaders);
