@@ -3,7 +3,9 @@ const redis = require('redis');
 const Boom = require('boom');
 const uuid = require('node-uuid');
 const Joi = require('joi');
+const JWT = require('jsonwebtoken');
 const verifyCredentials = require('../utils/user_functions').verifyCredentials;
+
 
 const redisClient = redis.createClient();
 redisClient.set("string key", "string val", redis.print);
@@ -18,14 +20,30 @@ const schema = {
 exports.register = function(server, options, next) {
   const db = server.app.db;
 
-  server.register({
+  server.route({
     method: 'POST',
     path: '/api/users/login',
     config: {
       pre: [
         {method: verifyCredentials, assign: 'user' }
       ],
-      handler: (req, res) => {
+      handler: (request, reply) => {
+
+        let session ={  //Session Payload
+          valid: true,
+          id: uuid.v1(),
+          userid: request.pre.user.id,
+          exp: new Date().getTime() +  60 * 60 * 1000
+        }
+
+        redisClient.set(session.id, JSON.stringify(session));
+
+        var token = JWT.sign(session, process.env.JWT_SECRET); // synchronous
+        console.log(token);
+
+        reply({message: 'Check Auth Header for your Token', token: token})
+        .header("Authorization", token);
+
 
       },
       validate:{
@@ -33,7 +51,8 @@ exports.register = function(server, options, next) {
       }
     }
   })
-}
+
+};
 
 exports.register.attributes = {
   name: 'routes-authenticate'

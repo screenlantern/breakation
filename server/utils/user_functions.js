@@ -1,48 +1,48 @@
 'use strict';
 const bcrypt = require('bcrypt');
 const mongojs = require('mongojs');
-const JWT = require('jsonwebtoken');
+
 
 const db = mongojs('breakation', ['users']);
 
-function verifyUniqueUser(req, res) {
+function verifyUniqueUser(request, reply) {
   db.users.findOne({
       $or:[
-        {'username': req.payload.username},
-        {'email': req.payload.email}
+        {'username': request.payload.username},
+        {'email': request.payload.email}
       ]
   }, (err, doc) => {
 
       if (err) {
-          return res(Boom.wrap(err, 'Internal MongoDB error'));
+          return reply(Boom.wrap(err, 'Internal MongoDB error'));
       }
 
       if (!doc) {
-          return res(Boom.notFound());
+          return reply(Boom.notFound());
       }
 
-      res(doc);
+      reply(doc);
   });
 }
 
 function verifyCredentials() {
   db.users.findOne({
     $or:[
-      {'username': req.payload.username},
-      {'email': req.payload.email}
+      {'username': request.payload.username},
+      {'email': request.payload.email}
     ]
   }, (err, user) => {
     if (user) {
-      bcrypt.compare(req.payload.password, user.password, (err, isValid) => {
+      bcrypt.compare(request.payload.password, user.password, (err, isValid) => {
         if (isValid) {
-          res(user);
+          reply(user);
         }
         else {
-          res(Boom.badRequest('Incorrect password!'));
+          reply(Boom.badrequest('Incorrect password!'));
         }
       });
     } else {
-      res(Boom.badRequest('Incorrect username or email!'));
+      reply(Boom.badrequest('Incorrect username or email!'));
     }
   });
 }

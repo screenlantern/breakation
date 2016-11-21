@@ -28,14 +28,18 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'GET',
     path: '/api/users',
-    handler: (req, res) => {
+    auth: {
+      strategy: 'jwt',
+      scope: ['admin']
+    },
+    handler: (request, reply) => {
       db.users.find((err, doc) => {
 
           if (err) {
               return reply(Boom.wrap(err, 'Internal MongoDB error'));
           }
 
-          res(doc);
+          reply(doc);
       });
 
     }
@@ -44,21 +48,21 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'GET',
     path: '/api/users/{id}',
-    handler: (req, res) => {
+    handler: (request, reply) => {
 
         db.users.findOne({
-            _id: req.params.id
+            _id: request.params.id
         }, (err, doc) => {
 
             if (err) {
-                return res(Boom.wrap(err, 'Internal MongoDB error'));
+                return request(Boom.wrap(err, 'Internal MongoDB error'));
             }
 
             if (!doc) {
-                return res(Boom.notFound());
+                return request(Boom.notFound());
             }
 
-            res(doc);
+            reply(doc);
         });
 
     }
@@ -67,9 +71,9 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'POST',
     path: '/api/users',
-    handler: (req, res) => {
+    handler: (request, reply) => {
 
-        const user = req.payload;
+        const user = request.payload;
 
         //Create an id
         user._id = uuid.v1();
@@ -77,10 +81,10 @@ exports.register = function(server, options, next) {
         db.users.save(user, (err, result) => {
 
             if (err) {
-                return res(Boom.wrap(err, 'Internal MongoDB error'));
+                return reply(Boom.wrap(err, 'Internal MongoDB error'));
             }
 
-            res(user);
+            reply(user);
         });
     },
     config: {
@@ -93,25 +97,28 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'PATCH',
     path: '/api/users/{id}',
-    handler: (req, res) => {
+    handler: (request, reply) => {
       db.users.update({
-            _id: req.params.id
+            _id: request.params.id
         }, {
-            $set: req.payload
+            $set: request.payload
         }, function (err, result) {
 
             if (err) {
-                return res(Boom.wrap(err, 'Internal MongoDB error'));
+                return reply(Boom.wrap(err, 'Internal MongoDB error'));
             }
 
             if (result.n === 0) {
-                return res(Boom.notFound());
+                return reply(Boom.notFound());
             }
 
-            res().code(204);
+            reply().code(204);
         });
     },
     config: {
+        pre: [
+          {method: verifyCredentials}
+        ],
         validate: {
             payload: Joi.object(schema).required().min(1)
         }
@@ -121,14 +128,14 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'POST',
     path: '/api/createadmin',
-    handler: (req, res) => {
+    handler: (request, reply) => {
 
-        const user = req.payload;
+        const user = request.payload;
 
         //Create an id
         user._id = uuid.v1();
 
-        hashPassword(req.payload.password, (err, hash) => {
+        hashPassword(request.payload.password, (err, hash) => {
 
           if (err) {throw Boom.badRequest(err);}
 
@@ -137,10 +144,10 @@ exports.register = function(server, options, next) {
           db.users.save(user, (err, result) => {
 
               if (err) {
-                  return res(Boom.wrap(err, 'Internal MongoDB error'));
+                  return reply(Boom.wrap(err, 'Internal MongoDB error'));
               }
 
-              res(user);
+              reply(user);
           });
 
         });
