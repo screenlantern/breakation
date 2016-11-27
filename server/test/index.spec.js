@@ -11,9 +11,3 @@ global.beforeEach = lab.beforeEach;
 
 global.server = require('../server');
 global.db = global.server.app.db;
-
-global.before((done) => {
-  global.db['users'].on('connected', () => {
-    done();
-  })
-});

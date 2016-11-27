@@ -3,7 +3,6 @@ require('env2')('.env');
 const Hapi = require('hapi');
 const CorsHeaders = require('hapi-cors-headers');
 const mongojs = require('mongojs');
-const JWT = require('jsonwebtoken');
 
 // Create a server with a host and port
 const server = new Hapi.Server();
@@ -13,8 +12,8 @@ server.connection({
 
 server.app.db = mongojs('breakation', ['users']);
 
-let validate = () => {
-  
+let validate = function() {
+
 }
 
 //Load plugins and start server

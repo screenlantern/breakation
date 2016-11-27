@@ -24,6 +24,7 @@ exports.register = function(server, options, next) {
     method: 'POST',
     path: '/api/users/login',
     config: {
+      auth: false,
       pre: [
         {method: verifyCredentials, assign: 'user' }
       ],
@@ -50,7 +51,9 @@ exports.register = function(server, options, next) {
         payload: schema
       }
     }
-  })
+  });
+
+  return next();
 
 };
 

@@ -4,6 +4,7 @@ const uuid = require('node-uuid');
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const verifyUniqueUser = require('../utils/user_functions').verifyUniqueUser;
+const verifyCredentials = require('../utils/user_functions').verifyCredentials;
 
 const schema = {
   username: Joi.string().trim().min(5).max(50).required(),
@@ -28,10 +29,6 @@ exports.register = function(server, options, next) {
   server.route({
     method: 'GET',
     path: '/api/users',
-    auth: {
-      strategy: 'jwt',
-      scope: ['admin']
-    },
     handler: (request, reply) => {
       db.users.find((err, doc) => {
 

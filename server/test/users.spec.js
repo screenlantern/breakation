@@ -19,7 +19,7 @@ describe('Routes /users', () => {
     });
   });
 
-  describe('GET /users', () => {
+  describe('GET api/users', () => {
 
     it('should return status code 200', (done) => {
       let options = {

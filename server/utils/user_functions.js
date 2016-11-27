@@ -25,7 +25,7 @@ function verifyUniqueUser(request, reply) {
   });
 }
 
-function verifyCredentials() {
+function verifyCredentials(request, reply) {
   db.users.findOne({
     $or:[
       {'username': request.payload.username},
