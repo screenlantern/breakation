@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { login } from '../../actions/Login';
 
 class Login extends Component {
   constructor(props){
@@ -16,4 +16,8 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return bindActionCreators({ login }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Login);

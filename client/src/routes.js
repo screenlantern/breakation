@@ -7,10 +7,10 @@ import Login from './containers/login/Login';
 import Registration from './containers/registration/Registration';
 
 export default (
-  <Route path="/" componenet={App}>
-    <IndexRoute componenet={Home} />
-    <Route path="login" componenet={Login} />
-    <Route path="registration" componenet={Registration} />
+  <Route path="/" component={App}>
+    <IndexRoute component={Home} />
+    <Route path="login" component={Login} />
+    <Route path="registration" component={Registration} />
   </Route>
 );
 
