@@ -153,7 +153,8 @@ exports.register = function(server, options, next) {
     config: {
         validate: {
             payload: Joi.object(schema)
-        }
+        },
+        auth: false
     }
   });
 

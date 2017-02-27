@@ -7,7 +7,7 @@ const mongojs = require('mongojs');
 // Create a server with a host and port
 const server = new Hapi.Server();
 server.connection({
-  port: 3000
+  port: 9000
 });
 
 server.app.db = mongojs('breakation', ['users']);
@@ -36,7 +36,6 @@ server.register(require('hapi-auth-jwt2'), (err) => {
 
   });
 });
-
 
 // Enable Cors & Start the server
 server.ext('onPreResponse', CorsHeaders);
