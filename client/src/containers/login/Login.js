@@ -8,12 +8,10 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      credentials: {
           email: '',
           username: '',
           password: ''
-      }
-    }
+    };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -21,27 +19,23 @@ class Login extends Component {
 
   onInputChange(e){
     this.setState({
-      credentials:{ 
-        username: e.target.value,
-        email: e.target.value,
-        password: e.target.value 
-      }
+        [e.target.name]: e.target.value
     });
   }
 
   onSubmit(e){
     e.preventDefault();
-    this.props.login(this.state.credentials);
-    console.log(this.state.credentials);
+    this.props.login(this.state);
   }
 
   render(){
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
-          <input type="text" placeholder="Username"  value={this.state.credentials.username} onChange={this.onInputChange}/> 
-          <input type="email" placeholder="Email"  value={this.state.credentials.email} onChange={this.onInputChange} />
-          <input type="password" placeholder="Password" value={this.state.credentials.password} onChange={this.onInputChange} />
+        <h4>{(this.props.status.loggedin)? 'Logged in' : 'not Logged in'}</h4>
+        <form onSubmit={this.onSubmit} onChange={this.onInputChange}>
+          <input type="text" placeholder="Username" name="username"  value={this.state.username} /> 
+          <input type="email" placeholder="Email"  name="email" value={this.state.email} />
+          <input type="password" placeholder="Password" name="password" value={this.state.password} />
           <button type="submit">Login</button>
         </form>
       </div>
@@ -53,4 +47,8 @@ const mapDispatchToProps = function(dispatch, ownProps) {
   return bindActionCreators({ login }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+const mapStateToProps = function(state, ownProps) {
+  return {status: state.login};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
