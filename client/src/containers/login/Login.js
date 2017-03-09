@@ -15,6 +15,7 @@ class Login extends Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    console.log(this.props.status.loggedIn);
   }
 
   onInputChange(e){
@@ -31,7 +32,7 @@ class Login extends Component {
   render(){
     return (
       <div>
-        <h4>{(this.props.status.loggedin)? 'Logged in' : 'not Logged in'}</h4>
+        <h4>{(this.props.status.loggedIn)? 'Logged in' : 'not Logged in'}</h4>
         <form onSubmit={this.onSubmit} onChange={this.onInputChange}>
           <input type="text" placeholder="Username" name="username"  value={this.state.username} /> 
           <input type="email" placeholder="Email"  name="email" value={this.state.email} />

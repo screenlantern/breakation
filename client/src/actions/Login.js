@@ -9,6 +9,8 @@ export function login(credentials){
                     type: 'LOGGED_IN',
                     payload: response
                 });
+                localStorage.setItem('token', response.data.token);
+                console.log(response);
                 console.log(credentials);
             })
             .catch((response)=> {

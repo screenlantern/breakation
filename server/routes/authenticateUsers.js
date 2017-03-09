@@ -53,6 +53,28 @@ exports.register = function(server, options, next) {
     }
   });
 
+  server.route({
+    method: 'GET',
+    path: '/api/users/current',
+    handler: (request, reply) => {
+      JWT.verify(token, process.env.JWT_SECRET, (err, session) => {
+        if (err) throw err;
+        db.users.findOne({
+          _id: session.userid
+        },(err, doc) => {
+          if(doc){
+
+            reply(doc);
+
+          }else{
+            reply(Boom.badrequest('No Valid Token'));
+          }
+        });
+
+      });
+    }
+  });
+
   return next();
 
 };
