@@ -16,5 +16,5 @@ export default (
 
 /*
 *<Route path='*' component={NotFound} />
-*
+*old version 3.0.0 set up
 */

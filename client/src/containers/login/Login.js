@@ -1,32 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { login } from '../../actions/Login';
+import { login } from '../../actions/ac_session';
 
 class Login extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-          email: '',
-          username: '',
-          password: ''
+        credentials: {
+            email: '',
+            username: '',
+            password: ''
+        }
     };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    console.log(this.props.status.loggedIn);
+
   }
 
+  componentDidMount(){
+      
+  }
+
+ componentWillReceiveProps(nextProps){
+    //if (nextProps.status.loggedIn){ this.props.history.push({pathname: '/dashboard' }) };
+  }
+
+
   onInputChange(e){
+    const creds = this.state.credentials;
+    creds[e.target.name] = e.target.value;
     this.setState({
-        [e.target.name]: e.target.value
+      credentials : creds
     });
   }
 
   onSubmit(e){
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.login(this.state.credentials);
   }
 
   render(){
@@ -34,9 +47,9 @@ class Login extends Component {
       <div>
         <h4>{(this.props.status.loggedIn)? 'Logged in' : 'not Logged in'}</h4>
         <form onSubmit={this.onSubmit} onChange={this.onInputChange}>
-          <input type="text" placeholder="Username" name="username"  value={this.state.username} /> 
-          <input type="email" placeholder="Email"  name="email" value={this.state.email} />
-          <input type="password" placeholder="Password" name="password" value={this.state.password} />
+          <input type="text" placeholder="Username" name="username"  value={this.state.credentials.username} /> 
+          <input type="email" placeholder="Email"  name="email" value={this.state.credentials.email} />
+          <input type="password" placeholder="Password" name="password" value={this.state.credentials.password} />
           <button type="submit">Login</button>
         </form>
       </div>
