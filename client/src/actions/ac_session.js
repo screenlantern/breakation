@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function login(credentials){
+export function login(credentials, history){
     return dispatch => {
 
         axios.post( 'http://localhost:9000/api/users/login' , credentials)
@@ -11,13 +11,15 @@ export function login(credentials){
                 });
                 localStorage.setItem('jwt', response.data.token);
                 console.log(credentials);
+            }).then(() => {
+                history.push('/dashboard')
             })
             .catch((response)=> {
                 dispatch({
                     type: 'INVALID_USER',
                     payload: response
                 });
-                console.log('login failed');
+                console.log(response);
              });
     }
     

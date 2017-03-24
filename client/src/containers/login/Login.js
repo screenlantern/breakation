@@ -39,13 +39,12 @@ class Login extends Component {
 
   onSubmit(e){
     e.preventDefault();
-    this.props.login(this.state.credentials);
+    this.props.login(this.state.credentials, this.props.history);
   }
 
   render(){
     return (
       <div>
-        <h4>{(this.props.status.loggedIn)? 'Logged in' : 'not Logged in'}</h4>
         <form onSubmit={this.onSubmit} onChange={this.onInputChange}>
           <input type="text" placeholder="Username" name="username"  value={this.state.credentials.username} /> 
           <input type="email" placeholder="Email"  name="email" value={this.state.credentials.email} />

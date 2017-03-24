@@ -1,4 +1,4 @@
-import {React, Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -19,4 +19,8 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = function(state, ownProps) {
+  return {status: state.login};
+}
+
+export default connect(mapStateToProps)(Dashboard);
