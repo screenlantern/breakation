@@ -21,7 +21,8 @@ const App = (props) => (
         <div className="container">
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/dashboard" component={Dashboard}/>
+          <Route path="/dashboard" component={Dashboard}>
+          </Route>
           <Route path="/registration" component={Registration} />
         </div>
         <footer className="App-footer">

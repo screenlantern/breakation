@@ -54,10 +54,10 @@ exports.register = function(server, options, next) {
   });
 
   server.route({
-    method: 'GET',
-    path: '/api/users/current',
+    method: 'POST',
+    path: '/api/users/validityCheck',
     handler: (request, reply) => {
-      JWT.verify(token, process.env.JWT_SECRET, (err, session) => {
+      JWT.verify(request.token, process.env.JWT_SECRET, (err, session) => {
         if (err) throw err;
         db.users.findOne({
           _id: session.userid
