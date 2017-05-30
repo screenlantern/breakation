@@ -28,7 +28,7 @@ export function login(credentials, history){
 export function validity(jwt){
     return dispatch => {
 
-        axios.post( 'http://localhost:9000/api/users/validityCheck' , jwt)
+        axios.post( 'http://localhost:9000/api/users/validity' , jwt)
             .then((response) => {
                dispatch({
                     type: 'VALID_USER',
