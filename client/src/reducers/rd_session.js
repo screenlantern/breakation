@@ -1,4 +1,8 @@
 import login from '../actions/ac_session';
+import { AUTH_USER,  
+         UNAUTH_USER,
+         AUTH_ERROR,
+         PROTECTED_TEST } from '../actions/types';
 
 export const InitialState = {
     loggedIn: false,
@@ -8,9 +12,9 @@ export const InitialState = {
 
 export default function(state = InitialState, action){
     switch(action.type){
-        case 'VALID_USER':
+        case AUTH_USER:
             return Object.assign({}, state, { loggedIn: true, shouldRedirect: true });
-        case 'INVALID_USER':
+        case UNAUTH_USER:
             return { ...state,  loggedIn: false, shouldRedirect: false, errorMessage: 'Login failed please check credentials'};
         default:
             return state;
