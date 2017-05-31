@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { validity } from '../../actions/ac_session';
 
 class Dashboard extends Component {
     constructor(props){
@@ -9,8 +8,7 @@ class Dashboard extends Component {
     }
 
     componentDidMount(){
-        let jwt = localStorage.getItem("jwt");
-        this.props.validity(jwt);
+       
     }
 
     render(){
@@ -22,11 +20,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = function(state, ownProps) {
-  return {status: state.login};
+  return {status: state.session};
 }
 
-const mapDispatchToProps = function(dispatch, ownProps) {
-  return bindActionCreators({ validity }, dispatch);
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, false)(Dashboard);

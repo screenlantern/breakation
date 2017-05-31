@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../logo.svg';
 import '../../node_modules/uikit/dist/css/uikit.css';
 import './App.css';
-import Auth from '../containers/auth/Athenticated';
+import Auth from '../containers/auth/Authenticated';
 
 import Home from './home/Home';
 import Login from '../containers/auth/Login';

@@ -61,7 +61,7 @@ const mapDispatchToProps = function(dispatch, ownProps) {
 }
 
 const mapStateToProps = function(state, ownProps) {
-  return {status: state.login};
+  return {status: state.session};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

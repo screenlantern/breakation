@@ -29,20 +29,20 @@ export function login(credentials, history){
     
 }
 
-export function validity(jwt){
+export function authenticate(jwt){
     return dispatch => {
 
         axios.post( 'http://localhost:9000/api/users/validity' , jwt)
             .then((response) => {
                dispatch({
-                    type: 'VALID_USER',
+                    type: AUTH_USER,
                     payload: response
                 });
                 console.log('jwt verified');
             })
             .catch((response)=> {
                 dispatch({
-                    type: 'INVALID_USER',
+                    type: UNAUTH_USER,
                     payload: response
                 });
                 console.log('invalid user');
