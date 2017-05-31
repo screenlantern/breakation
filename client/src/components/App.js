@@ -4,7 +4,7 @@ import '../../node_modules/uikit/dist/css/uikit.css';
 import './App.css';
 
 import Home from './home/Home';
-import Login from '../containers/login/Login';
+import Login from '../containers/auth/Login';
 import Registration from '../containers/registration/Registration';
 import Dashboard from '../containers/dashboard/Dashboard';
 
