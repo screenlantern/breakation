@@ -14,7 +14,7 @@ export default function(state = InitialState, action){
         case AUTH_USER:
             return Object.assign({}, state, { loggedIn: true, shouldRedirect: true });
         case UNAUTH_USER:
-            return { ...state,  loggedIn: false, shouldRedirect: false, errorMessage: 'Login failed please check credentials'};
+            return { ...state,  loggedIn: false, shouldRedirect: false, errorMessage: 'authorization failed'};
         default:
             return state;
     }

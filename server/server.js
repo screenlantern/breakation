@@ -16,10 +16,10 @@ server.app.redisClient = redis.createClient();
 
 const validate = function(decoded, request, callback) {
   const redisClient = server.app.redisClient;
-  console.log(decoded);
+
   redisClient.get(decoded.id, function (rediserror, reply) {
-    console.log(JSON.parse(reply));
-     if(reply){
+      const session = JSON.parse(reply);
+      if(session.valid === true){
         return callback(rediserror, true);
       }else{
         return callback(rediserror, false);

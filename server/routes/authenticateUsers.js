@@ -53,7 +53,7 @@ exports.register = function(server, options, next) {
 
   server.route({
     method: 'POST',
-    path: '/api/users/validity',
+    path: '/api/users/verifyToken',
     handler: (request, reply) => {
       JWT.verify(request.payload.token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) throw err;

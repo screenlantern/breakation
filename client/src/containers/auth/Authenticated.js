@@ -11,8 +11,7 @@ export default function(WrappedComponent) {
         }
 
         componentDidMount() {
-            let jwt = localStorage.getItem("jwt");
-             this.props.authenticate(jwt);
+             this.props.authenticate();
         }
 
         render() {

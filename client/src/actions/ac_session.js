@@ -4,6 +4,8 @@ import { AUTH_USER,
          UNAUTH_USER,
          PROTECTED_TEST } from './types';
 
+const jwt = localStorage.getItem("jwt");
+
 export function login(credentials, history){
     return dispatch => {
 
@@ -29,10 +31,10 @@ export function login(credentials, history){
     
 }
 
-export function authenticate(jwt){
+export function authenticate(){
     return dispatch => {
 
-        axios.post( 'http://localhost:9000/api/users/validity' , 
+        axios.post( 'http://localhost:9000/api/users/verifyToken' , 
         {token: jwt}, 
         {'headers': {'Authorization': jwt}
         })
