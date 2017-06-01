@@ -32,21 +32,24 @@ export function login(credentials, history){
 export function authenticate(jwt){
     return dispatch => {
 
-        axios.post( 'http://localhost:9000/api/users/validity' , jwt)
-            .then((response) => {
-               dispatch({
-                    type: AUTH_USER,
-                    payload: response
-                });
-                console.log('jwt verified');
-            })
-            .catch((response)=> {
-                dispatch({
-                    type: UNAUTH_USER,
-                    payload: response
-                });
-                console.log('invalid user');
+        axios.post( 'http://localhost:9000/api/users/validity' , 
+        {token: jwt}, 
+        {'headers': {'Authorization': jwt}
+        })
+        .then((response) => {
+            dispatch({
+                type: AUTH_USER,
+                payload: response
+            });
+            console.log('jwt verified');
+        })
+        .catch((response)=> {
+            dispatch({
+                type: UNAUTH_USER,
+                payload: response
+            });
+            console.log('invalid user');
         });
     }
-    
+
 }

@@ -1,14 +1,10 @@
 'use strict';
-const redis = require('redis');
 const Boom = require('boom');
 const uuid = require('node-uuid');
 const Joi = require('joi');
 const JWT = require('jsonwebtoken');
 const verifyCredentials = require('../utils/user_functions').verifyCredentials;
 
-
-const redisClient = redis.createClient();
-redisClient.set("string key", "string val", redis.print);
 
 const schema = {
   username: Joi.string().trim().min(5).max(50).required(),
@@ -19,6 +15,7 @@ const schema = {
 
 exports.register = function(server, options, next) {
   const db = server.app.db;
+  const redisClient = server.app.redisClient;
 
   server.route({
     method: 'POST',
@@ -33,7 +30,7 @@ exports.register = function(server, options, next) {
         let session ={  //Session Payload
           valid: true,
           id: uuid.v1(),
-          userid: request.pre.user.id,
+          userid: request.pre.user._id,
           exp: new Date().getTime() +  60 * 60 * 1000
         }
 
@@ -41,6 +38,7 @@ exports.register = function(server, options, next) {
 
         var token = JWT.sign(session, process.env.JWT_SECRET); // synchronous
         console.log(token);
+        console.log(request.pre.user._id);
 
         reply({message: 'Check Auth Header for your Token', token: token})
         .header("Authorization", token);
@@ -57,10 +55,10 @@ exports.register = function(server, options, next) {
     method: 'POST',
     path: '/api/users/validity',
     handler: (request, reply) => {
-      JWT.verify(request.jwt, process.env.JWT_SECRET, (err, session) => {
+      JWT.verify(request.payload.token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) throw err;
         db.users.findOne({
-          _id: session.userid
+          _id: decoded.userid
         },(err, doc) => {
           if(doc){
 

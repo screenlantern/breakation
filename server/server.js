@@ -3,6 +3,7 @@ require('env2')('.env');
 const Hapi = require('hapi');
 const CorsHeaders = require('hapi-cors-headers');
 const mongojs = require('mongojs');
+const redis = require('redis');
 
 // Create a server with a host and port
 const server = new Hapi.Server();
@@ -11,9 +12,19 @@ server.connection({
 });
 
 server.app.db = mongojs('breakation', ['users']);
+server.app.redisClient = redis.createClient();
 
-let validate = function() {
-
+const validate = function(decoded, request, callback) {
+  const redisClient = server.app.redisClient;
+  console.log(decoded);
+  redisClient.get(decoded.id, function (rediserror, reply) {
+    console.log(JSON.parse(reply));
+     if(reply){
+        return callback(rediserror, true);
+      }else{
+        return callback(rediserror, false);
+      }  
+  });
 }
 
 //Load plugins and start server
