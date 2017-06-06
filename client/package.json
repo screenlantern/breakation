@@ -20,7 +20,7 @@
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "uikit": "3.0.0-beta.9"
+    "wingcss": "^1.0.0-beta"
   },
   "scripts": {
     "start": "react-scripts start",

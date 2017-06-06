@@ -14,6 +14,10 @@ export default function(WrappedComponent) {
              this.props.authenticate();
         }
 
+        componentWillReceiveProps(nextProps){
+            if (nextProps.status.shouldRedirect){ this.props.history.push({pathname: '/Login'}) };
+        }
+
         render() {
             return <WrappedComponent {...this.props} />
         }

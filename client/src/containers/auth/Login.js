@@ -44,7 +44,7 @@ class Login extends Component {
 
   render(){
     return (
-      <div>
+      <div className="container">
         <form onSubmit={this.onSubmit} onChange={this.onInputChange}>
           <input type="text" placeholder="Username" name="username"  value={this.state.credentials.username} /> 
           <input type="email" placeholder="Email"  name="email" value={this.state.credentials.email} />

@@ -40,7 +40,7 @@ exports.register = function(server, options, next) {
         console.log(token);
         console.log(request.pre.user._id);
 
-        reply({message: 'Check Auth Header for your Token', token: token})
+        reply({message: 'Check Auth Header for your Token'})
         .header("Authorization", token);
 
 
