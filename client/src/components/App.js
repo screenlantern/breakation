@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../../node_modules/wingcss/dist/wing.css';
 import './App.css';
 import Auth from '../containers/auth/Authenticated';
 
-import Home from './home/Home';
+import Home from '../containers/home/Home';
 import Login from '../containers/auth/Login';
 import Registration from '../containers/registration/Registration';
 import Dashboard from '../containers/dashboard/Dashboard';
