@@ -1,0 +1,40 @@
+
+section{
+     min-height: 971px;
+}
+
+.hero{
+    position: relative;
+    background: url('../../img/herobg.jpg') center center no-repeat;
+    background-size: cover;
+    font-size: 24px;
+    margin: 0;
+   
+    h1{
+        position: relative;
+        margin: 0;
+        top: 150px;
+        z-index: 5;
+        font-size: 72px;
+        line-height: 80px;
+        font-weight: 100;
+        color: #fff;
+    }
+}
+
+.hero:before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #292929;
+    opacity: 0.3;
+    z-index: 2;
+}
+
+.middle{
+     background: #10253F;
+}
+    

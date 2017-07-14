@@ -5,8 +5,9 @@
   "devDependencies": {
     "enzyme": "^2.6.0",
     "enzyme-to-json": "^1.4.5",
+    "node-sass-chokidar": "0.0.2",
     "react-addons-test-utils": "^15.4.1",
-    "react-scripts": "0.6.1",
+    "react-scripts": "1.0.7",
     "redux-mock-store": "^1.2.2"
   },
   "dependencies": {
@@ -23,6 +24,8 @@
     "wingcss": "^1.0.0-beta"
   },
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

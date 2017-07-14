@@ -32,6 +32,7 @@ export function login(credentials, history){
 }
 
 export function authenticate(){
+    
     return dispatch => {
 
         axios.post( 'http://localhost:9000/api/users/verifyToken' , 

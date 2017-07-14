@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/header/Header';
+import './Home.css';
+import Login from '../auth/Login';
 
 class Home extends Component {
   constructor(props){
@@ -8,11 +10,16 @@ class Home extends Component {
 
   render(){
     return(
-      <div>
-      <header />
-      <section className="hero">
-        <div className="container" >
-          <h1>Welcome home</h1>
+      <div className="row">
+      <section className="hero col">
+        <div>
+          <h1>Keep a Track with</h1>
+          <h1>Breakation</h1>
+        </div>
+      </section>
+      <section className="col">
+        <div className="container">
+        <Login />
         </div>
       </section>
       </div>

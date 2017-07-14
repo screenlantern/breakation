@@ -7,7 +7,7 @@ const verifyCredentials = require('../utils/user_functions').verifyCredentials;
 
 
 const schema = {
-  username: Joi.string().trim().min(5).max(50).required(),
+  username: Joi.string().trim().min(5).max(50),
   email: Joi.string().email().trim().required(),
   password: Joi.string().trim().required()
 };
@@ -60,6 +60,7 @@ exports.register = function(server, options, next) {
         db.users.findOne({
           _id: decoded.userid
         },(err, doc) => {
+
           if(doc){
 
             reply(doc);

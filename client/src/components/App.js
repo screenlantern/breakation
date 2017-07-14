@@ -16,8 +16,7 @@ const App = (props) => (
       <div className="App">
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/dashboard" component={Auth(Dashboard)}>
-          </Route>
+          <Route path="/dashboard" component={Auth(Dashboard)} />
           <Route path="/registration" component={Registration} />
         <footer className="App-footer">
         </footer>

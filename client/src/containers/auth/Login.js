@@ -44,11 +44,11 @@ class Login extends Component {
 
   render(){
     return (
-      <div className="container">
+      <div>
         <form onSubmit={this.onSubmit} onChange={this.onInputChange}>
           <input type="text" placeholder="Username" name="username"  value={this.state.credentials.username} /> 
-          <input type="email" placeholder="Email"  name="email" value={this.state.credentials.email} />
-          <input type="password" placeholder="Password" name="password" value={this.state.credentials.password} />
+          <input type="email" placeholder="Email"  name="email" value={this.state.credentials.email}  required/>
+          <input type="password" placeholder="Password" name="password" value={this.state.credentials.password} required />
           <button type="submit">Login</button>
         </form>
       </div>
@@ -58,10 +58,10 @@ class Login extends Component {
 
 const mapDispatchToProps = function(dispatch, ownProps) {
   return bindActionCreators({ login }, dispatch);
-}
+};
 
 const mapStateToProps = function(state, ownProps) {
   return {status: state.session};
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
