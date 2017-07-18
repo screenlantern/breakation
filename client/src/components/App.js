@@ -1,6 +1,4 @@
 import React from 'react';
-import '../../node_modules/wingcss/dist/wing.css';
-import './App.css';
 import Auth from '../containers/auth/Authenticated';
 
 import Home from '../containers/home/Home';

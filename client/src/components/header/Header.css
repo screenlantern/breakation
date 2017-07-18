@@ -1,8 +1,0 @@
-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  background: #292929;
-  padding: 0 3.25em 0 3.25em;
-  will-change: scroll-position, transform;
-  height: 65px;
-  max-height: 65px;
-  line-height: 62px; }

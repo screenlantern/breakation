@@ -7,9 +7,8 @@ const db = mongojs('breakation', ['users']);
 
 function verifyUniqueUser(request, reply) {
   db.users.findOne({
-      $or:[
-        {'username': request.payload.username},
-        {'email': request.payload.email}
+      $or:[{'email': request.payload.email},
+        {'username': request.payload.username}
       ]
   }, (err, doc) => {
 
@@ -28,8 +27,8 @@ function verifyUniqueUser(request, reply) {
 function verifyCredentials(request, reply) {
   db.users.findOne({
     $or:[
-      {'username': request.payload.username},
-      {'email': request.payload.email}
+        {'email': request.payload.email},
+        {'username': request.payload.username}
     ]
   }, (err, user) => {
     if (user) {
