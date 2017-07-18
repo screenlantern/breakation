@@ -46,12 +46,12 @@ class Login extends Component {
                 <form className={css(styles.form)} onSubmit={this.onSubmit} onChange={this.onInputChange}>
                     <div className={css(styles.div)}>
                         <label>Email</label>
-                        <input type="email" placeholder="Email" name="email" value={this.state.credentials.email}
+                        <input className={css(styles.input)} type="email" placeholder="Type your email address here" name="email" value={this.state.credentials.email}
                                required/>
                     </div>
                     <div className={css(styles.div)}>
                         <label>Password</label>
-                        <input type="password" placeholder="Password" name="password"
+                        <input className={css(styles.input)} type="password" placeholder="Type password here" name="password"
                                value={this.state.credentials.password} required/>
                     </div>
                     <Button type="submit" color="primary">Log in</Button>
@@ -68,6 +68,15 @@ const styles = StyleSheet.create({
         margin: '0 auto',
         transform: 'translateY(50%)',
         textAlign: 'center'
+    },
+    input: {
+        height: '48px',
+        width: '100%',
+        border: '1px solid #D5DBE2',
+        fontSize: '18px',
+        color: 'rgba(151,164,177,0.2)',
+        fontWeight: '300',
+        padding: '0.5rem'
     },
     div: {
         textAlign: 'left'
