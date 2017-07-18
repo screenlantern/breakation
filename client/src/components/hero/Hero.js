@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
             top: '0',
             left: '0',
             backgroundColor: '#292929',
-            opacity: '0.3',
+            opacity: '0.6',
             zIndex: '2'
         }
     }

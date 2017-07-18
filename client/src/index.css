@@ -2,15 +2,14 @@ body {
   margin: 0;
   padding: 0;
   background: #F7F7F7;
-  font-family: 'Lora', serif;
+  font-family: 'Playfair Display', serif;
 }
 
 h1,h2,h3,h4,h5{
-  font-family: 'Raleway', sans-serif;
-  /*font-family: 'Raleway Dots', cursive;*/
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-button{
+button, a{
   cursor: pointer;
 }
 
