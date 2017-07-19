@@ -1,13 +1,12 @@
 import { AUTH_USER,  
          UNAUTH_USER,
-         AUTH_ERROR,
-         PROTECTED_TEST } from '../actions/types';
+         AUTH_ERROR } from '../actions/types';
 
 export const InitialState = {
     loggedIn: false,
     shouldRedirect: false,
     errorMessage: null
-}
+};
 
 export default function(state = InitialState, action){
     switch(action.type){

@@ -7,7 +7,7 @@ const verifyUniqueUser = require('../utils/user_functions').verifyUniqueUser;
 const verifyCredentials = require('../utils/user_functions').verifyCredentials;
 
 const schema = {
-  username: Joi.string().trim().min(5).max(50).required(),
+  username: Joi.string().trim().min(5).max(50),
   email: Joi.string().email().trim().required(),
   avatar: Joi.string().trim().min(8).max(100),
   password: Joi.string().trim().required(),

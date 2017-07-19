@@ -3,26 +3,10 @@ import {
     AUTH_USER,
     AUTH_ERROR,
     UNAUTH_USER,
-    REGISTERED_USER
 } from './types';
-
-const jwt = localStorage.getItem("jwt");
-
-export function register(credentials, history) {
-    return dispatch => {
-        axios.post('http://localhost:9000/api/createadmin')
-            .then((response) => {
-                dispatch({
-                   type: REGISTERED_USER,
-                   payload: response
-                });
-            });
-    }
-}
 
 export function login(credentials, history) {
     return dispatch => {
-
         axios.post('http://localhost:9000/api/users/login', credentials)
             .then((response) => {
                 dispatch({
@@ -31,9 +15,10 @@ export function login(credentials, history) {
                 });
                 localStorage.setItem('jwt', response.data.token);
                 console.log(credentials);
-            }).then(() => {
-            history.push('/dashboard')
-        })
+            })
+            .then(() => {
+                history.push('/dashboard')
+            })
             .catch((response) => {
                 dispatch({
                     type: UNAUTH_USER,
@@ -41,9 +26,10 @@ export function login(credentials, history) {
                 });
                 console.log(response);
             });
-    }
-
+    };
 }
+
+const jwt = localStorage.getItem("jwt");
 
 export function authenticate() {
 

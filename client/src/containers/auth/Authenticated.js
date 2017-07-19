@@ -15,7 +15,7 @@ export default function(WrappedComponent) {
         }
 
         componentWillReceiveProps(nextProps){
-            if (nextProps.status.shouldRedirect){ this.props.history.push({pathname: '/Login'}) };
+            if (nextProps.status.shouldRedirect){ this.props.history.push({pathname: '/Login'}) }
         }
 
         render() {
@@ -27,11 +27,11 @@ export default function(WrappedComponent) {
 
     const mapStateToProps = function(state, ownProps) {
         return {status: state.session};
-    }
+    };
 
     const mapDispatchToProps = function(dispatch, ownProps) {
         return bindActionCreators({ authenticate }, dispatch);
-    }
+    };
 
     return connect(mapStateToProps, mapDispatchToProps)(Authenticated);
 

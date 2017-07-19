@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Login from '../auth/Login';
 import Hero from '../../components/hero/Hero';
 import { StyleSheet, css } from 'aphrodite';
@@ -19,7 +20,7 @@ class Home extends Component {
                 </Hero>
                 <section className="col">
                     <div className="container">
-                        <Login />
+                        <Login history={this.props.history} />
                     </div>
                 </section>
             </div>
@@ -42,4 +43,8 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Home;
+const mapStateToProps = function (state, ownProps) {
+    return {status: state.session};
+};
+
+export default connect(mapStateToProps, null)(Home);
