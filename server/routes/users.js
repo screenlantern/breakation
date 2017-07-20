@@ -141,6 +141,14 @@ exports.register = function(server, options, next) {
           db.users.save(user, (err, result) => {
 
               if (err) {
+                  console.log(Boom.boomify(err));
+
+                  if(err.name === 'MongoError' && err.code === 11000 ){
+                      let isUsername =  err.message.split(' ').includes('username_1');
+                      let msg = (isUsername)? 'Username already exist' : 'Email already exist';
+                      return reply(Boom.create( 409 , msg));
+                  }
+
                   return reply(Boom.boomify(err));
               }
 
