@@ -46,10 +46,6 @@ function verifyCredentials(request, reply) {
   });
 }
 
-function verifyAdmin(){
-
-}
-
 module.exports = {
   verifyUniqueUser: verifyUniqueUser,
   verifyCredentials: verifyCredentials

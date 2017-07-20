@@ -33,7 +33,7 @@ exports.register = function(server, options, next) {
       db.users.find((err, doc) => {
 
           if (err) {
-              return reply(Boom.wrap(err, 'Internal MongoDB error'));
+              return reply(Boom.boomfy(err));
           }
 
           reply(doc);
@@ -52,7 +52,7 @@ exports.register = function(server, options, next) {
         }, (err, doc) => {
 
             if (err) {
-                return request(Boom.wrap(err, 'Internal MongoDB error'));
+                return request(Boom.boomify(err));ß
             }
 
             if (!doc) {
@@ -78,7 +78,7 @@ exports.register = function(server, options, next) {
         db.users.save(user, (err, result) => {
 
             if (err) {
-                return reply(Boom.wrap(err, 'Internal MongoDB error'));
+                return reply(Boom.boomify(err));
             }
 
             reply(user);
@@ -102,7 +102,7 @@ exports.register = function(server, options, next) {
         }, function (err, result) {
 
             if (err) {
-                return reply(Boom.wrap(err, 'Internal MongoDB error'));
+                return reply(Boom.boomify(err));
             }
 
             if (result.n === 0) {
@@ -141,7 +141,7 @@ exports.register = function(server, options, next) {
           db.users.save(user, (err, result) => {
 
               if (err) {
-                  return reply(Boom.wrap(err, 'Internal MongoDB error'));
+                  return reply(Boom.boomify(err));
               }
 
               reply(user);

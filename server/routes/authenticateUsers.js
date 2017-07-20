@@ -32,7 +32,7 @@ exports.register = function(server, options, next) {
           id: uuid.v1(),
           userid: request.pre.user._id,
           exp: new Date().getTime() +  60 * 60 * 1000
-        }
+        };
 
         redisClient.set(session.id, JSON.stringify(session));
 
