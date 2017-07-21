@@ -1,8 +1,12 @@
 language: node_js
-  - "6.11.1"
+  - 6
+  - 8
 cache:
   directories:
     - "node_modules"
+    - "client/node_modules"
+    - "client/react-scripts/node_modules"
+install: true
 env:
   - TEST_DIR=client
   - TEST_DIR=-server
