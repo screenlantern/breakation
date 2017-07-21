@@ -9,6 +9,6 @@ env:
   - TEST_DIR=client
   - TEST_DIR=server
 
-script: cd $TEST_DIR && npm build && npm run test
+script: cd $TEST_DIR && npm install && npm build && npm run test
 
 
