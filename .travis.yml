@@ -6,11 +6,12 @@ cache:
     - "node_modules"
     - "client/node_modules"
     - "client/react-scripts/node_modules"
+    - "server/node_modules"
 install: true
 env:
   - TEST_DIR=client
   - TEST_DIR=-server
 
-script: cd $TEST_DIR && npm run test && npm build
+script: cd $TEST_DIR && npm build && npm run test
 
 
