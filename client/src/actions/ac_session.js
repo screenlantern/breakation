@@ -1,9 +1,6 @@
 import axios from 'axios';
-import {
-    AUTH_USER,
-    AUTH_ERROR,
-    UNAUTH_USER,
-} from './types';
+import { AUTH_USER,  UNAUTH_USER } from './types';
+
 
 export function login(credentials, history) {
     return dispatch => {
@@ -13,7 +10,7 @@ export function login(credentials, history) {
                     type: AUTH_USER,
                     payload: response
                 });
-                localStorage.setItem('jwt', response.data.token);
+                localStorage.setItem('token', response.data.token);
                 console.log(credentials);
             })
             .then(() => {
@@ -29,16 +26,16 @@ export function login(credentials, history) {
     };
 }
 
-const jwt = localStorage.getItem("jwt");
+const token = localStorage.getItem("token");
 
 export function authenticate() {
 
     return dispatch => {
 
         axios.post('http://localhost:9000/api/users/verifyToken',
-            {token: jwt},
+            {token: token},
             {
-                'headers': {'Authorization': jwt}
+                'headers': {'Authorization': token}
             })
             .then((response) => {
                 dispatch({

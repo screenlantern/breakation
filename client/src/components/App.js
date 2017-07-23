@@ -5,8 +5,8 @@ import Home from '../containers/home/Home';
 import Login from '../containers/auth/Login';
 import Registration from '../containers/registration/Registration';
 import Dashboard from '../containers/dashboard/Dashboard';
-
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 
 
 const App = (props) => (

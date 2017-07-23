@@ -24,7 +24,7 @@ describe('Routes /users', () => {
     it('should return status code 200', (done) => {
       let options = {
 
-      }
+      };
       server.inject(options, (response) => {
         done();
       });

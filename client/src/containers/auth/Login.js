@@ -23,7 +23,7 @@ class Login extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        //if (nextProps.status.loggedIn){ this.props.history.push({pathname: '/dashboard' }) };
+        if (nextProps.status.loggedIn){ console.log(this.props.session) }
     }
 
 
