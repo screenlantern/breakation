@@ -1,11 +1,11 @@
 import { AUTH_USER,  
-         UNAUTH_USER,
-         AUTH_ERROR } from '../actions/types';
+         UNAUTH_USER } from '../actions/types';
 
 export const InitialState = {
     loggedIn: false,
     shouldRedirect: false,
-    errorMessage: null
+    errorMessage: null,
+    data: []
 };
 
 export default function(state = InitialState, action){

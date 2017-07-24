@@ -21,7 +21,7 @@ class Dashboard extends Component {
 
 const mapStateToProps = function(state, ownProps) {
   return {status: state.session};
-}
+};
 
 
 export default connect(mapStateToProps, false)(Dashboard);

@@ -4,20 +4,18 @@ import { shallowToJson } from 'enzyme-to-json';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Login from './Login';
-import {initialState as loginComponent } from '../../reducers/rd_session';
+import {initialState as sessionSate } from '../../reducers/rd_session';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('<Login/>', () => {
-    
-    it('render with default props', () => {
-        const store = mockStore({ loginComponent });
-        const wrapper = shallow(<Login store={store} />);
-        expect(shallowToJson(wrapper)).toMatchSnapshot();
-    });
 
-    it('dispatch an action to authenticate user', () => {
+it('render with default props', () => {
+    const store = mockStore({ sessionSate });
+    const wrapper = shallow(<Login store={store} />);
+    expect(shallowToJson(wrapper)).toMatchSnapshot();
+});
 
-    });
+it('dispatch an action to authenticate user', () => {
 
 });
+

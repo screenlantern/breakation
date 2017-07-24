@@ -1,16 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Login/> render with default props 1`] = `
+exports[`render with default props 1`] = `
 <Login
-  login={[Function anonymous]}
+  login={[Function]}
   store={
     Object {
-      "clearActions": [Function clearActions],
-      "dispatch": [Function anonymous],
-      "getActions": [Function getActions],
-      "getState": [Function getState],
-      "replaceReducer": [Function replaceReducer],
-      "subscribe": [Function subscribe]
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
-  } />
+  }
+/>
 `;
