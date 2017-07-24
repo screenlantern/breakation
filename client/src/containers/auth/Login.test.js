@@ -15,7 +15,7 @@ it('render with default props', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
 });
 
-it('dispatch an action to authenticate user', () => {
+it('should dispatch an action to authenticate user', () => {
 
 });
 
