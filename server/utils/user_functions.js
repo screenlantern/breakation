@@ -38,11 +38,11 @@ function verifyCredentials(request, reply) {
           reply(user);
         }
         else {
-          reply(Boom.badrequest('Incorrect password!'));
+          reply(Boom.badRequest('Incorrect password!'));
         }
       });
     } else {
-      reply(Boom.badrequest('Incorrect username or email!'));
+      reply(Boom.badRequest('Incorrect username or email!'));
     }
   });
 }

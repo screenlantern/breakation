@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a707491f-8ab7-4f11-a676-a93703752ea2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/users.js" afterPath="$PROJECT_DIR$/server/routes/users.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/utils/user_functions.js" afterPath="$PROJECT_DIR$/server/utils/user_functions.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -86,8 +85,8 @@
           <file leaf-file-name="user_functions.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/utils/user_functions.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+                <state relative-caret-position="560">
+                  <caret line="44" column="61" lean-forward="true" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
                   <folding />
                 </state>
               </provider>
@@ -259,8 +258,8 @@
         <option value="$PROJECT_DIR$/server/test/users.spec.js" />
         <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/.travis.yml" />
-        <option value="$PROJECT_DIR$/server/utils/user_functions.js" />
         <option value="$PROJECT_DIR$/server/routes/users.js" />
+        <option value="$PROJECT_DIR$/server/utils/user_functions.js" />
       </list>
     </option>
   </component>
@@ -530,12 +529,12 @@
       <workItem from="1500370848074" duration="50102000" />
       <workItem from="1500894860971" duration="4019000" />
       <workItem from="1500926714620" duration="3908000" />
-      <workItem from="1500997288277" duration="8646000" />
+      <workItem from="1500997288277" duration="8803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114922000" />
+    <option name="totallyTimeSpent" value="115079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -946,8 +945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/utils/user_functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        <state relative-caret-position="560">
+          <caret line="44" column="61" lean-forward="true" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
           <folding />
         </state>
       </provider>
