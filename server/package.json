@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "lab",
+    "test": "ava",
     "start": "nodemon server.js"
   },
   "repository": {
@@ -31,8 +31,7 @@
     "redis": "^2.6.3"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "lab": "^11.2.1",
+    "ava": "^0.21.0",
     "nodemon": "^1.11.0"
   }
 }

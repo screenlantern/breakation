@@ -1,36 +1,37 @@
+'use strict';
+const test = require('ava');
+const server = require('../server');
 
-describe('Routes /users', () => {
 
-  let token;
-  //authenticate
-  before((done) => {
-    let options = {
-      method: 'POST',
-      url: 'api/users/login',
-      payload: {
-       "username":"screenlantern",
-       "email":"screenlanter@gmail.com",
-       "password":"oliveoi1"
-     }
+let _token;
+//authenticate
+test.before((done) => {
+    const request = {
+        method: 'POST',
+        url: '/api/users/login',
+        payload: {
+            "username": "screenlantern",
+            "email": "screenlantern@gmail.com",
+            "password": "oliveoi1"
+        }
     };
-    server.inject(options, (response) => {
-      token = response.result.token;
-      done();
-    });
-  });
+    return server.inject(request)
+        .then(response => {
+            _token = response.raw.res._headers.authorization;
+        });
+});
 
-  describe('GET api/users', () => {
+const requestGet = {
+    method: 'GET',
+    url: '/api/users'
+};
 
-    it('should return status code 200', (done) => {
-      let options = {
-
-      };
-      server.inject(options, (response) => {
-        done();
-      });
-
-    });
-
-  })
-
+test('GET api/users | should return status code 200', t => {
+    const request = Object.assign({}, requestGet, { headers: { 'Authorization': _token } });
+    return server.inject(request)
+        .then(response => {
+            console.log(_token);
+            console.log(request);
+            t.is(response.statusCode, 200, 'status code is 200');
+        });
 });

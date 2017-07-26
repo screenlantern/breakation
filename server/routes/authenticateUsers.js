@@ -38,7 +38,7 @@ exports.register = function(server, options, next) {
 
         var token = JWT.sign(session, process.env.JWT_SECRET); // synchronous
         console.log(token);
-        console.log(request.pre.user._id);
+       // console.log(request.pre.user._id);
 
         reply({message: 'Check Auth Header for your Token'})
         .header("Authorization", token);
