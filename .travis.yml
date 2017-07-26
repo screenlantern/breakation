@@ -4,17 +4,14 @@ language: node_js
 cache:
   directories:
     - "node_modules"
-install:
-  - npm install
+install: true
 services:
-  - redis-server
-  - mongodb
+    - redis-server
+    - mongodb
 env:
   - TEST_DIR=client
   - TEST_DIR=server
-script:
-  - cd $TEST_DIR
-  - npm build
-  - npm test
+
+script: cd $TEST_DIR && npm install && npm build && npm test
 
 
