@@ -33,7 +33,7 @@ exports.register = function(server, options, next) {
       db.users.find((err, doc) => {
 
           if (err) {
-              return reply(Boom.boomfy(err));
+              return reply(Boom.boomify(err));
           }
 
           reply(doc);

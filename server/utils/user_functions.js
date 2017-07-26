@@ -1,6 +1,7 @@
 'use strict';
 const bcrypt = require('bcrypt');
 const mongojs = require('mongojs');
+const Boom = require('boom');
 
 
 const db = mongojs('breakation', ['users']);
@@ -13,7 +14,7 @@ function verifyUniqueUser(request, reply) {
   }, (err, doc) => {
 
       if (err) {
-          return reply(Boom.wrap(err, 'Internal MongoDB error'));
+          return reply(Boom.boomify(err));
       }
 
       if (!doc) {
