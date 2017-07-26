@@ -1,5 +1,5 @@
 'use strict';
-require('env2')('.env');
+require('dotenv').config();
 const Hapi = require('hapi');
 const CorsHeaders = require('hapi-cors-headers');
 const mongojs = require('mongojs');

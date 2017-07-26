@@ -20,7 +20,7 @@
   "dependencies": {
     "bcrypt": "^1.0.2",
     "boom": "^5.2.0",
-    "env2": "^2.2.0",
+    "dotenv": "^4.0.0",
     "hapi": "^16.5.0",
     "hapi-auth-jwt2": "^7.2.4",
     "hapi-cors-headers": "^1.0.0",
