@@ -4,8 +4,8 @@ const server = require('../server');
 
 
 let _token;
-//authenticate
-test.before((done) => {
+//authenticate.js
+test.beforeEach((done) => {
     const request = {
         method: 'POST',
         url: '/api/users/login',

@@ -2,7 +2,6 @@
 require('dotenv').config();
 const Hapi = require('hapi');
 const CorsHeaders = require('hapi-cors-headers');
-const mongojs = require('mongojs');
 const redis = require('redis');
 
 // Create a server with a host and port
@@ -11,11 +10,8 @@ server.connection({
     port: 9000
 });
 
-server.app.db = mongojs('breakation', ['users']);
-server.app.redisClient = redis.createClient();
-
 const validate = function (decoded, request, callback) {
-    const redisClient = server.app.redisClient;
+    const redisClient = redis.createClient();
 
     redisClient.get(decoded.id, function (rediserror, reply) {
         const session = JSON.parse(reply);
@@ -25,7 +21,7 @@ const validate = function (decoded, request, callback) {
             return callback(rediserror, false);
         }
     });
-}
+};
 
 //Load plugins and start server
 server.register(require('hapi-auth-jwt2'), (err) => {
@@ -37,8 +33,8 @@ server.register(require('hapi-auth-jwt2'), (err) => {
     });
 
     server.register([
-        require('./routes/authenticateUsers'),
-        require('./routes/users')
+        require('./routes/endpoints/authenticate'),
+        require('./routes/endpoints/users')
     ], (err) => {
 
         if (err) {
