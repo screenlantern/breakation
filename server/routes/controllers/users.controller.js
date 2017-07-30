@@ -1,9 +1,9 @@
+'use strict';
+const mongojs = require('mongojs');
 const Boom = require('boom');
 const uuid = require('node-uuid');
-const mongojs = require('mongojs');
 
 const db = mongojs('breakation', ['users']);
-const user = require('../../models/user');
 
 module.exports = {
     findAll: function (request, reply) {

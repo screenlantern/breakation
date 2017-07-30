@@ -1,8 +1,8 @@
 'use strict';
 const Joi = require('joi');
 const verifyCredentials = require('../../utils/user.utils').verifyCredentials;
-const users = require('../controllers/users');
-const userModel = require('../../model/user.model');
+const users = require('../controllers/users.controller');
+const userModel = require('../../models/user.model');
 
 exports.register = function (server, options, next) {
 

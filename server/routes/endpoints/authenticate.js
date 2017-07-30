@@ -1,7 +1,7 @@
 'use strict';
 const verifyCredentials = require('../../utils/user.utils').verifyCredentials;
-const authenticate = require('../controllers/authenticate');
-const authenticateModel = require('../../model/authenticate.model');
+const authenticate = require('../controllers/athenticate.controller');
+const authenticateModel = require('../../models/authenticate.model');
 
 exports.register = function(server, options, next) {
 
