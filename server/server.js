@@ -49,7 +49,7 @@ server.ext('onPreResponse', CorsHeaders);
 
 if (!module.parent) {
     server.start((err) => {
-        console.log('Started at:', server.info.uri)
+        console.log('Started at:', server.info.uri);
         process.exit(1);
     });
 }

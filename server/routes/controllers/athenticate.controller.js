@@ -20,7 +20,7 @@ module.exports = {
 
         redisClient.set(session.id, JSON.stringify(session));
 
-        var token = JWT.sign(session, process.env.JWT_SECRET); // synchronous
+        let token = JWT.sign(session, process.env.JWT_SECRET); // synchronous
         console.log(token);
         // console.log(request.pre.user._id);
 

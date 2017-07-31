@@ -50,4 +50,4 @@ function verifyCredentials(request, reply) {
 module.exports = {
   verifyUniqueUser: verifyUniqueUser,
   verifyCredentials: verifyCredentials
-}
+};

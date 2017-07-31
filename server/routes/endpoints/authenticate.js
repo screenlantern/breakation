@@ -2,6 +2,7 @@
 const verifyCredentials = require('../../utils/user.utils').verifyCredentials;
 const authenticate = require('../controllers/athenticate.controller');
 const authenticateModel = require('../../models/authenticate.model');
+const Joi = require('joi');
 
 exports.register = function(server, options, next) {
 
@@ -15,7 +16,7 @@ exports.register = function(server, options, next) {
       ],
       handler: authenticate.login,
       validate:{
-        payload: authenticateModel.schema
+        payload: Joi.object(authenticateModel.schema)
       }
     }
   });

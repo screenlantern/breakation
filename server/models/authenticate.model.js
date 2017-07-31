@@ -12,5 +12,5 @@ class Authenticate {
 
 }
 
-const authenticate = new Authenticate();
-module.exports = authenticate;
+
+module.exports = new Authenticate();
