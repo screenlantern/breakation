@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "ava",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,16 +22,16 @@
     "boom": "^5.2.0",
     "dotenv": "^4.0.0",
     "hapi": "^16.5.0",
-    "hapi-auth-jwt2": "^7.2.4",
+    "hapi-auth-jwt2": "^7.3.0",
     "hapi-cors-headers": "^1.0.0",
     "joi": "^10.6.0",
-    "jsonwebtoken": "^7.2.1",
+    "jsonwebtoken": "^7.4.1",
     "mongojs": "^2.4.0",
-    "node-uuid": "^1.4.7",
-    "redis": "^2.6.3"
+    "node-uuid": "^1.4.8",
+    "redis": "^2.7.1"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
-    "nodemon": "^1.11.0"
+    "ava": "*",
+    "nodemon": "*"
   }
 }

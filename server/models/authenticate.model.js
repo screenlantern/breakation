@@ -12,5 +12,4 @@ class Authenticate {
 
 }
 
-
 module.exports = new Authenticate();

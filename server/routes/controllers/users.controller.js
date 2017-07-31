@@ -2,6 +2,7 @@
 const mongojs = require('mongojs');
 const Boom = require('boom');
 const uuid = require('node-uuid');
+const userModel = require('../../models/user.model');
 
 const db = mongojs('breakation', ['users']);
 
@@ -38,7 +39,7 @@ module.exports = {
         //Create an id
         user._id = uuid.v1();
 
-        user.hashPassword(request.payload.password, (err, hash) => {
+        userModel.hashPassword(request.payload.password, (err, hash) => {
 
             if (err) {throw Boom.badRequest(err);}
 
