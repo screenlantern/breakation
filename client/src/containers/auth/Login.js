@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import { StyleSheet, css } from 'aphrodite';
 import Button  from '../../components/button/Button';
 import {login} from '../../actions/ac_session';
@@ -105,12 +104,9 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapDispatchToProps = function (dispatch, ownProps) {
-    return bindActionCreators({login}, dispatch);
-};
 
 const mapStateToProps = function (state, ownProps) {
     return {status: state.session};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, {login})(Login);
