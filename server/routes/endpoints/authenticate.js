@@ -1,6 +1,6 @@
 'use strict';
 const verifyCredentials = require('../../utils/user.utils').verifyCredentials;
-const authenticate = require('../controllers/athenticate.controller');
+const authenticate = require('../handlers/athenticate.controller');
 const authenticateModel = require('../../models/authenticate.model');
 const Joi = require('joi');
 
