@@ -1,0 +1,44 @@
+{
+  "name": "clientp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint src && preact test",
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build",
+    "serve": "preact build && preact serve",
+    "dev": "preact watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "eslint-config-synacor"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-synacor": "^1.0.1",
+    "flow-bin": "^0.52.0",
+    "if-env": "^1.0.0",
+    "jest": "^20.0.4",
+    "preact-cli": "^1.4.1",
+    "preact-compat-enzyme": "^0.2.5",
+    "preact-test-utils": "^0.1.3",
+    "redux-mock-store": "^1.2.3"
+  },
+  "dependencies": {
+    "aphrodite": "^1.2.3",
+    "axios": "^0.16.2",
+    "lodash": "^4.17.4",
+    "preact": "^8.2.1",
+    "preact-compat": "^3.16.0",
+    "preact-render-to-string": "^3.6.3",
+    "preact-router": "^2.5.5",
+    "react-router-dom": "^4.1.2",
+    "redux": "^3.7.2",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "wingcss": "^1.0.0-beta"
+  }
+}
