@@ -32,6 +32,7 @@ AuthenticateCtrl.prototype.login = (request, reply) => {
         .header("Authorization", token);
 
 };
+
 AuthenticateCtrl.prototype.verify = (request, reply) => {
 
     JWT.verify(request.payload.token, process.env.JWT_SECRET, (err, decoded) => {
