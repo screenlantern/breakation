@@ -49,8 +49,8 @@ server.ext('onPreResponse', CorsHeaders);
 
 if (!module.parent) {
     server.start((err) => {
+        if (err) {throw err;}
         console.log('Started at:', server.info.uri);
-        process.exit(1);
     });
 }
 

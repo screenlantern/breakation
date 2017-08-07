@@ -1,7 +1,7 @@
 'use strict';
 const verifyCredentials = require('../../utils/user.utils').verifyCredentials;
 const authenticate = require('../handlers/athenticate.controller');
-const authenticateModel = require('../../models/authenticate.model');
+const Authenticate = require('../../models/authenticate.model');
 const Joi = require('joi');
 
 exports.register = function(server, options, next) {
@@ -16,7 +16,7 @@ exports.register = function(server, options, next) {
       ],
       handler: authenticate.login,
       validate:{
-        payload: Joi.object(authenticateModel.schema)
+        payload: Joi.object(Authenticate.schema)
       }
     }
   });

@@ -2,7 +2,7 @@
 const Joi = require('joi');
 const verifyCredentials = require('../../utils/user.utils').verifyCredentials;
 const users = require('../handlers/users.controller');
-const userModel = require('../../models/user.model');
+const User = require('../../models/user.model');
 
 exports.register = function (server, options, next) {
 
@@ -24,7 +24,7 @@ exports.register = function (server, options, next) {
         handler: users.save,
         config: {
             validate: {
-                payload: Joi.object(userModel.schema)
+                payload: Joi.object(User.schema)
             },
             auth: false
         }
@@ -39,7 +39,7 @@ exports.register = function (server, options, next) {
                 {method: verifyCredentials}
             ],
             validate: {
-                payload: Joi.object(userModel.schema).required().min(1)
+                payload: Joi.object(User.schema).required().min(1)
             }
         }
     });

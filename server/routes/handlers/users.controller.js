@@ -2,7 +2,6 @@
 const mongojs = require('mongojs');
 const Boom = require('boom');
 const uuid = require('node-uuid');
-const userModel = require('../../models/user.model');
 
 const db = mongojs('breakation', ['users']);
 
