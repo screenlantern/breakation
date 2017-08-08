@@ -7,7 +7,6 @@
     "test": "ava",
     "start": "node server.js",
     "watch": "nodemon server.js"
-    
   },
   "repository": {
     "type": "git",
