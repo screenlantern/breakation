@@ -17,7 +17,6 @@ test.beforeEach((done) => {
     };
     return server.inject(request)
         .then(response => {
-            console.log(response.raw.res._headers.authorization);
             _token = response.raw.res._headers.authorization;
         });
 });

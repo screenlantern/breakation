@@ -10,4 +10,6 @@ env:
   matrix:
   - TEST_DIR=client
   - TEST_DIR=server
+  global:
+    secure: BVLtk3RzyoeX4OibvJjKU+Y/zvRTPbtriL4j3ZC4aWsOgbYr9t9nPxUtVl7L5gUFr4j9aKgyVrvTXMd9DpLXcOlcBdHnt9aBLF5f0ryCUaBDFNWFeOeCntJYmNKT1WKvn25z39xPtCD0nPRQdNoCNOGWyf1L3IAM631C3NTGIYwDcuJ+GQTN+IaiSwfEq13MlRHSBXLU514cKuzzlpacXvDHjuRZ0+fCCGamTqBqoILtOpCaRdyVTC4qNKdxyKyhZGd1QckSPSlbXGCqnCrwAg3mcWz3BDfwocGc0gch0w3Sz5lgbWRj/fyWzwjX1Wv2j4vdFGjIr2xzOJkgFZ/tQHNOGx7fx+ZWNoeS0e+EMspiQY/gPDAEBXxdMEEqc/m2o07u1eCH6Ym/cL0wtamACeMew21suGf/TPa5aol3r92OZ3kv+eerrCPfM5KURyDjQUagnrUbYkcf6exw1IcZztmerAenjkKm0VtZ9ygvNnAPwZd/2WgCB8d2pvltceGk60VoZBbVzfpcuz3EY2dkBHJWOsyMy5bP3ZGUeAjrdK28tBClWUn6CbRxr+CLhni51fUkPRXImXWodi0blZszqaMiSHydPZmkLXLjuBiZWL6cI08nDs03NChBn/h0flg3sq3IKD/mEIvdp1R+PuMFf3KNz0cNTH30757G4gpt9rE=
 script: cd $TEST_DIR && npm install && npm build && npm test
