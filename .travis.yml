@@ -1,19 +1,15 @@
-language: node_js
-  - 6
-  - 8
+language: node_js - 6 - 8
 cache:
   directories:
-    - "node_modules"
+  - node_modules
 install: true
 services:
-    - redis-server
-    - mongodb
+- redis-server
+- mongodb
 env:
+  matrix:
   - TEST_DIR=client
   - TEST_DIR=server
-  
-secure: "NRjvRHOvTR9Rw+frIDd0d9HtpWtwhNCyan5mY5chB3hDy9iOQ6m9NkbgMrrRdoj/cBXtJYMqoGEAH2mbrfUGXNzTgiYAheQ316FLnnsjBhAmjjdt+kmyFXc3EA6l6ZzBtiL4eqQw7JQPBAksELRTXnnR/qOrA0caMM3zS+ZAgY1muEXqPx6NOKFILNo9AJ7E7TsrhxTm3skgHew7vStrcXB0hJCOE51gG3iJE+uwYO2fHJ05yahyNtUECsMexPfVdOuYwnBU5xRwXNmZoXhxD99AbCQhZIn1edJe7IooHi14rpTyOrC+kp94/6aziC2GeHER60g2wGG8sc5V80pPVLq6LA2GxRjHHKn+UB4b98qstF8hln4e3y1PEz/I814hIcasToh4JM9nk41wmSpxapAgJudjrIFc2q6jcvwRtqvGaMBtl+LC7ATsmKuDFglb8XRxMFhLdqbyeh4wXytMd8iF4Gg3e8Mmt9LSSwnAl8l0NZorD/hd3DyJ+R1JeSuLEV8hx52gUlmEYiKuoe/55VV31avfnYqg//1af8VeeWfFaI822dQAFAh4+9CphCCklXpxxpiY+MdCTJXiMgW8YribYRLr06yNVhrDTA5W629imr+ydKWATmdKHDMTQYn4sgSqliO36tGhjZeIsYSSfwALrhTs+BZZedEz8e5L3lc="
-
+  global:
+    secure: URMJq5jl4aiiEGozr2YtQhbnYFnE5T5WGrcUMWZZ5Q1BtPs9/CiaDxmNmdc0S9dbK9A8sRxPrb9m0Bly3NNh2f0m0IdJksFHPEWTjnpkXt9P/lCxmpnpBRkjaEqHJGCz0+5q66NibNKsNo35VltkkygaEreLB1xrN+c2KzcUiIEbXBATB+tahLCZLvvjQyxcgEFNiYiYwon05novHCptpAW8eszfo66EbwF+WnJK7nzZcXxpFl9OofgnrrdkbcncA8vPZpnAwCyfZ4x62GPRzlyCM0jZiWl0KI1Ar20ZmslHTnfVOwN/ZEbRXVIiS7FMj81xozidmmJnhaJVcssoQARKXbWKMXhsxHzorHBnIREo5WD6TQCKTo81QQSX9LM33z3WNnItwIKzET6rRqXQdvGGYuDfo+pjtrUdshjnJ9/uKn8OPPPIkl4/uW9uSNQx9t09kXL54zV/2frXiZTOYzdz5em9ksvL8QIguRTvi8J0XI4U1gb/fZ40MhTs+9SveckyHV+c4Vg6JadfS+S+rF0Oxfe9bZRG/YH1a+jCHnhk3121YxF3zccxhUT2rFF8XnqeJv3YNAO5unpAkmMHKqLMSasK+TXjJIJeylyzQXNxYbsyNUnIhjXLncwmrVm5e0H492y6i84MeQpTsjMw/PbO+9BPB1tmFvLAzlbxyHw=
 script: cd $TEST_DIR && npm install && npm build && npm test
-
-
