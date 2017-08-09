@@ -8,7 +8,7 @@ let _token;
 test.beforeEach((done) => {
     const request = {
         method: 'POST',
-        url: '/api/users/login',
+        url: '/api/auth/login',
         payload: {
             "username": "screenlantern",
             "email": "screenlantern@gmail.com",
@@ -17,6 +17,7 @@ test.beforeEach((done) => {
     };
     return server.inject(request)
         .then(response => {
+            console.log(response.raw.res._headers.authorization);
             _token = response.raw.res._headers.authorization;
         });
 });
@@ -30,7 +31,6 @@ test('GET api/users | should return status code 200', t => {
     const request = Object.assign({}, requestGet, { headers: { 'Authorization': _token } });
     return server.inject(request)
         .then(response => {
-            console.log(_token);
             console.log(request);
             t.is(response.statusCode, 200, 'status code is 200');
         });

@@ -8,10 +8,10 @@ const redis = require('redis');
 const redisClient = redis.createClient();
 const db = mongojs('breakation', ['users']);
 
-function AuthenticateCtrl() {
+function AuthCtrl() {
 }
 
-AuthenticateCtrl.prototype.login = (request, reply) => {
+AuthCtrl.prototype.login = (request, reply) => {
 
     let session = { //Session Payload
         valid: true,
@@ -33,7 +33,7 @@ AuthenticateCtrl.prototype.login = (request, reply) => {
 
 };
 
-AuthenticateCtrl.prototype.verify = (request, reply) => {
+AuthCtrl.prototype.verify = (request, reply) => {
 
     JWT.verify(request.payload.token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) throw err;
@@ -53,4 +53,4 @@ AuthenticateCtrl.prototype.verify = (request, reply) => {
     });
 };
 
-module.exports = new AuthenticateCtrl();
+module.exports = new AuthCtrl();

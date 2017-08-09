@@ -11,6 +11,8 @@ services:
 env:
   - TEST_DIR=client
   - TEST_DIR=server
+  
+secure: "NRjvRHOvTR9Rw+frIDd0d9HtpWtwhNCyan5mY5chB3hDy9iOQ6m9NkbgMrrRdoj/cBXtJYMqoGEAH2mbrfUGXNzTgiYAheQ316FLnnsjBhAmjjdt+kmyFXc3EA6l6ZzBtiL4eqQw7JQPBAksELRTXnnR/qOrA0caMM3zS+ZAgY1muEXqPx6NOKFILNo9AJ7E7TsrhxTm3skgHew7vStrcXB0hJCOE51gG3iJE+uwYO2fHJ05yahyNtUECsMexPfVdOuYwnBU5xRwXNmZoXhxD99AbCQhZIn1edJe7IooHi14rpTyOrC+kp94/6aziC2GeHER60g2wGG8sc5V80pPVLq6LA2GxRjHHKn+UB4b98qstF8hln4e3y1PEz/I814hIcasToh4JM9nk41wmSpxapAgJudjrIFc2q6jcvwRtqvGaMBtl+LC7ATsmKuDFglb8XRxMFhLdqbyeh4wXytMd8iF4Gg3e8Mmt9LSSwnAl8l0NZorD/hd3DyJ+R1JeSuLEV8hx52gUlmEYiKuoe/55VV31avfnYqg//1af8VeeWfFaI822dQAFAh4+9CphCCklXpxxpiY+MdCTJXiMgW8YribYRLr06yNVhrDTA5W629imr+ydKWATmdKHDMTQYn4sgSqliO36tGhjZeIsYSSfwALrhTs+BZZedEz8e5L3lc="
 
 script: cd $TEST_DIR && npm install && npm build && npm test
 
