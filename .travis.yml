@@ -10,6 +10,4 @@ env:
   matrix:
   - TEST_DIR=client
   - TEST_DIR=server
-  global:
-  - secure: A6us0oLXu5lfZqWogREXUTyjsqvqGl4JRapx16F3PP2lVTBLzh+x/ZTkmnWAvaszPL/NVnGzCbmbOiB3n5y+naVJvjEYvFlTkMvtRmCEdubwJiDMcDhKrut+uowAE9SJ4s6qAXpKzBs1W25sQu4pupymYTTwt8ZzxSb2dpsiwOA=
 script: cd $TEST_DIR && npm install && npm build && npm test
