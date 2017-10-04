@@ -24,10 +24,11 @@ AuthCtrl.prototype.login = (request, reply) => {
 
     let token = JWT.sign(session, process.env.JWT_SECRET); // synchronous
     console.log(token);
-    // console.log(request.pre.user._id);
+    console.log(request.pre.user._id);
 
     reply({
-        message: 'Check Auth Header for your Token'
+        message: 'Check Auth Header for your Token',
+        token
     })
         .header("Authorization", token);
 

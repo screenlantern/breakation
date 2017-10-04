@@ -21,16 +21,31 @@ test.beforeEach((done) => {
         });
 });
 
-const requestGet = {
-    method: 'GET',
-    url: '/api/users'
+const request = function (method) {
+    return {
+        method: method,
+        url: '/api/users'
+    };
 };
 
 test('GET api/users | should return status code 200', t => {
-    const request = Object.assign({}, requestGet, { headers: { 'Authorization': _token } });
+    const request = Object.assign({}, request('GET'), {
+        headers: {
+            'Authorization': _token
+        }
+    });
     return server.inject(request)
         .then(response => {
             console.log(request);
             t.is(response.statusCode, 200, 'status code is 200');
         });
+});
+
+test('POST api/user | should return status code 200', t => {
+    const request = Object.assign({}, request('POST'), {
+            "email": "test@gmail.com",
+            "firstname": "test",
+            "lastname": "case"
+        
+    });
 });
