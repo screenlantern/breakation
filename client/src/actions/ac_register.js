@@ -6,7 +6,7 @@ import {
 
 export function register(credentials, history) {
     return dispatch => {
-        axios.post('http://localhost:9000/api/createadmin', credentials)
+        axios.post('http://localhost:9000/api/users', credentials)
             .then((response) => {
                 dispatch({
                     type: REGISTER_SUCCESS,

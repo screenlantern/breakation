@@ -46,6 +46,5 @@ test('POST api/user | should return status code 200', t => {
             "email": "test@gmail.com",
             "firstname": "test",
             "lastname": "case"
-        
     });
 });

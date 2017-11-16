@@ -4,6 +4,7 @@ const Boom = require('boom');
 const uuid = require('node-uuid');
 
 const db = mongojs('breakation', ['users']);
+const User = require('../../models/user.model');
 
 function UserCtrl() {
 }
@@ -42,7 +43,7 @@ UserCtrl.prototype.save = (request, reply) => {
     //Create an id
     user._id = uuid.v1();
 
-    userModel.hashPassword(request.payload.password, (err, hash) => {
+    User.hashPassword(request.payload.password, (err, hash) => {
 
         if (err) {
             throw Boom.badRequest(err);

@@ -23,7 +23,7 @@ const validate = function (decoded, request, callback) {
     });
 };
 
-//Load plugins and start server
+//Load plugins
 server.register(require('hapi-auth-jwt2'), (err) => {
 
     server.auth.strategy('jwt', 'jwt', 'required', {

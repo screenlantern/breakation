@@ -41,7 +41,7 @@ export function authenticate() {
         axios.post('http://localhost:9000/api/auth/verifyToken',
             {token: getToken()},
             {
-                'headers': {'Authorization': token}
+                'headers': {'Authorization': getToken()}
             })
             .then((response) => {
                 dispatch({
