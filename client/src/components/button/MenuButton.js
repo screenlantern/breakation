@@ -3,23 +3,26 @@ import {StyleSheet, css} from 'aphrodite';
 
 const Button = (props) => { 
     return (
-        <button type={props.type} className={css(styles.primary, styles.button)}>
+        <a type={props.type} className={css( styles.button)}>
             {props.children}
-        </button>
+        </a>
     )
 };
 
 const styles = StyleSheet.create({
-    primary: {
+    button:{
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'row',
         backgroundColor: '#3396FF',
+        maxWidth: '53px',
+        height: '53px',
+        width: '100%',
+        borderRadius: '50%',
+        float: 'right',
         ':hover':{
             backgroundColor: '#2d6eb5'
         }
-    },
-    button: {
-        width: '180px',
-        height: '50px',
-        fontSize: '18px'
     }
 });
 

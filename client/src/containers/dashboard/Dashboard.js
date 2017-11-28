@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Header from '../../components/header/Header';
 
 class Dashboard extends Component {
     constructor(props){
@@ -13,6 +14,7 @@ class Dashboard extends Component {
     render(){
         return (
             <div>
+                <Header />
             </div>
         );
     }

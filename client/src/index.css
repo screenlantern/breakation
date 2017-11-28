@@ -13,4 +13,8 @@ button, a{
   cursor: pointer;
 }
 
+.container{
+  max-width: 1442px;
+}
+
 
