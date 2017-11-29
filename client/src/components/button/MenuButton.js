@@ -1,5 +1,11 @@
+// @flow
 import React from 'react';
 import {StyleSheet, css} from 'aphrodite';
+
+type Props = {
+    onClick: (event: Event) => void,
+    children: React.Node
+}
 
 const Button = (props) => { 
     return (

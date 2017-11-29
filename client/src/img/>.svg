@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="21px" viewBox="0 0 13 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>ICON</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Notifications_1" transform="translate(-1369.000000, -55.000000)" fill="#FFFFFF">
+            <g id="SIDEBAR" transform="translate(999.000000, 0.000000)">
+                <g id="ICON" transform="translate(376.000000, 65.000000) scale(-1, 1) translate(-376.000000, -65.000000) translate(351.000000, 40.000000)">
+                    <g transform="translate(18.000000, 15.000000)">
+                        <polygon points="0 10.5 10.92 0 13 2 4.16 10.5 13 19 10.92 21"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

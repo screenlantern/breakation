@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="24px" viewBox="0 0 20 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Shared_boards_1" transform="translate(-1126.000000, -48.000000)" fill="#8B97A0">
+            <g id="DASHBOARD">
+                <g id="HEADBAR" transform="translate(2.000000, 0.000000)">
+                    <g id="ICONS" transform="translate(1064.000000, 41.000000)">
+                        <path d="M70,31 C71.2941176,31 72.3529412,29.92 72.3529412,28.6 L67.6470588,28.6 C67.6470588,29.92 68.7058824,31 70,31 L70,31 Z M77.6470588,23.8 L77.6470588,17.2 C77.6470588,13.48 75.1764706,10.48 71.7647059,9.64 L71.7647059,8.8 C71.7647059,7.84 70.9411765,7 70,7 C69.0588235,7 68.2352941,7.84 68.2352941,8.8 L68.2352941,9.64 C64.8235294,10.48 62.3529412,13.48 62.3529412,17.2 L62.3529412,23.8 L60,26.2 L60,27.4 L80,27.4 L80,26.2 L77.6470588,23.8 L77.6470588,23.8 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

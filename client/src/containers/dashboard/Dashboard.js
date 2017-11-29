@@ -21,7 +21,10 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = function(state, ownProps) {
-  return {status: state.session};
+  return {
+      status: state.session,
+      dashboard: state.dashboard
+    };
 };
 
 
