@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import Header from '../../components/header/Header';
 
 class Dashboard extends Component {
-    constructor(props){
-        super(props)
-    }
 
     componentDidMount(){
        
