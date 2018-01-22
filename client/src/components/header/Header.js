@@ -60,7 +60,9 @@ const styles = StyleSheet.create({
     dashHeader: {
        padding: '0 30px',
        minHeight: '64px',
-       justifyContent: 'center'
+       justifyContent: 'center',
+       backgroundColor: '#1c4e80',
+       color: '#fff'
     },
     avatar: {
         cursor: 'pointer',

@@ -1,12 +1,39 @@
 body {
   margin: 0;
   padding: 0;
-  background: #F7F7F7;
+  background: #F1F1F1;
   font-family: 'Playfair Display', serif;
 }
 
 h1,h2,h3,h4,h5{
   font-family: 'Josefin Sans', sans-serif;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  color: #204F7E;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+a:hover{
+  background: #7E909A;
+  color: #fff;
+  opacity: 0.5;
+}
+
+a i{
+  margin-right: 6px;
 }
 
 button, a{
