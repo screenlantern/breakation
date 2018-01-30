@@ -6,6 +6,8 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import App from './components/App';
 import '../node_modules/wingcss/dist/wing.css';
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/material.js';
 import './index.css';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);

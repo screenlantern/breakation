@@ -19,22 +19,13 @@ li{
 }
 
 a{
-  color: #204F7E;
-  padding-left: 30px;
-  display: flex;
-  align-items: center;
-  height: 60px;
+  text-decoration: none;
 }
 
 a:hover{
-  background: #7E909A;
-  color: #fff;
-  opacity: 0.5;
+  
 }
 
-a i{
-  margin-right: 6px;
-}
 
 button, a{
   cursor: pointer;
@@ -42,6 +33,11 @@ button, a{
 
 .container{
   max-width: 1442px;
+}
+
+.mdl-layout-title{
+  background-color: #1c4e80;
+  color: #fff;
 }
 
 
