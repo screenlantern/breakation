@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { StyleSheet, css } from "aphrodite";
 import { Drawer, Navigation } from "react-mdl";
+import { Link } from "react-router-dom";
 
 const SideBar = props => (
   <Drawer title="Breakation">
     <Navigation>
-      <a href="#"> Current Members </a>
-      <a href="#"> Add Team Member </a>
-      <a href="#"> Overview </a>
+      <Link to="#"> Current Members </Link>
+      <Link to="/addMember"> Add Team Member </Link>
+      <Link to="#"> Overview </Link>
     </Navigation>
   </Drawer>
 );

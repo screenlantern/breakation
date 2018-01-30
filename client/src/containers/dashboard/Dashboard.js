@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, css } from "aphrodite";
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { HashRouter as Router, Route } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
+import NewMember from "../forms/member/New";
 import { Layout, Content, Icon, IconButton } from "react-mdl";
 
 class Dashboard extends Component {
@@ -12,19 +13,19 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className={css(styles.dash)}>
-        <Layout fixedHeader>
-          <Header />
-          <Sidebar />
-          <Content>
-            <div className={css(styles.content)}>
-                <Router>
-                    <Route />
-                </Router>
-            </div>
-          </Content>
-        </Layout>
-      </div>
+      <Router>
+        <div className={css(styles.dash)}>
+          <Layout fixedHeader>
+            <Header />
+            <Sidebar />
+            <Content>
+              <div className={css(styles.content)}>
+                <Route path="/addMember" component={NewMember} />
+              </div>
+            </Content>
+          </Layout>
+        </div>
+      </Router>
     );
   }
 }
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: "30px"
-  },
+  }
 });
 
 const mapStateToProps = function(state, ownProps) {

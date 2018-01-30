@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import Button from "../../../components/button/Button";
+import { Button } from "react-mdl";
 import { StyleSheet, css } from "aphrodite";
 import { addMember } from "../../../actions/ac_dashboard";
 
@@ -14,15 +14,12 @@ class New extends Component {
         email: "",
         password: "",
         username: "",
-        admin: true
-      },
-      confirmedPassword: "",
-      confirmedStatus: false
+        admin: false
+      }
     };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.confirmPassword = this.confirmPassword.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -83,24 +80,9 @@ class New extends Component {
               required
             />
           </div>
-          <div className={css(styles.div)}>
-            <label>Password</label>
-            <input
-              onChange={this.onInputChange}
-              className={css(styles.input)}
-              type="password"
-              placeholder="Type password here"
-              name="password"
-              value={this.state.credentials.password}
-              required
-            />
-          </div>
-          <Button type="submit" color="primary">
-            Sign up now
+          <Button type="submit" raised colored ripple>
+            Add Member
           </Button>
-          <p className={css(styles.p)}>
-            Already have an account?<a href="/">&nbsp;&nbsp;Sign in</a>
-          </p>
         </form>
       </div>
     );
@@ -112,7 +94,7 @@ const mapDispatchToProps = function(dispatch) {
 };
 
 const mapStateToProps = function(state) {
-  return { status: state.register };
+  return { status: state.member };
 };
 
 const styles = StyleSheet.create({
