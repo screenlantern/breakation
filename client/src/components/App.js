@@ -3,9 +3,9 @@ import Auth from '../containers/auth/Authenticated';
 
 import Home from '../containers/home/Home';
 import Login from '../containers/auth/Login';
-import Registration from '../containers/registration/Registration';
+import Registration from '../containers/forms/registration/Registration';
 import Dashboard from '../containers/dashboard/Dashboard';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 

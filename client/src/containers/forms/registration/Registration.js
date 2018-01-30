@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Button from '../../components/button/Button';
+import Button from '../../../components/button/Button';
 import {StyleSheet, css} from 'aphrodite';
-import {register} from '../../actions/ac_register';
+import {register} from '../../../actions/ac_register';
 
 class Registration extends Component {
     constructor(props) {

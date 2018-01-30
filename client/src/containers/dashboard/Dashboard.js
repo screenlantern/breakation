@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, css } from "aphrodite";
+
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { Layout, Content, Icon, IconButton } from "react-mdl";
@@ -16,6 +18,9 @@ class Dashboard extends Component {
           <Sidebar />
           <Content>
             <div className={css(styles.content)}>
+                <Router>
+                    <Route />
+                </Router>
             </div>
           </Content>
         </Layout>

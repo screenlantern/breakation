@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import { StyleSheet, css } from "aphrodite";
-import { Header, Navigation } from "react-mdl";
+import { Header, Navigation, Icon } from "react-mdl";
 
 const Head = (props) => (
   <Header title="Breakation" className={css(styles.dashHeader)}
   >
     <Navigation>
-      <a href="#">Profile</a>
+      <a href="#"><Icon name="person" /></a>
     </Navigation>
   </Header>
 );
 
 const styles = StyleSheet.create({
   dashHeader: {
-    padding: "0 30px",
     minHeight: "64px",
     justifyContent: "center",
     backgroundColor: "#1c4e80",

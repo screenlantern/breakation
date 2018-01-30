@@ -15,7 +15,7 @@ export default function(WrappedComponent) {
         }
 
         componentWillReceiveProps(nextProps){
-           // if (nextProps.status.shouldRedirect){ this.props.history.push({pathname: '/Login'}) }
+            if (!nextProps.status.shouldRedirect){ this.props.history.push({pathname: '/Login'}) }
         }
 
         render() {
