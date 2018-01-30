@@ -22,11 +22,13 @@
     "bcrypt": "^1.0.3",
     "boom": "^5.2.0",
     "dotenv": "^4.0.0",
+    "generate-password": "^1.4.0",
     "hapi": "^16.6.2",
     "hapi-auth-jwt2": "^7.4.1",
     "hapi-cors-headers": "^1.0.3",
     "joi": "^10.6.0",
     "jsonwebtoken": "^7.4.3",
+    "mailgun-js": "^0.14.2",
     "mongojs": "^2.4.1",
     "node-uuid": "^1.4.8",
     "redis": "^2.8.0"

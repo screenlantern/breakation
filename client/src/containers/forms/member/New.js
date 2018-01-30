@@ -12,7 +12,7 @@ class New extends Component {
     this.state = {
       credentials: {
         email: "",
-        password: "",
+        password: "blank",
         username: "",
         admin: false
       }
@@ -32,9 +32,9 @@ class New extends Component {
     this.setState({
       credentials: {
         email: "",
-        password: "",
+        password: "blank", //remove fixed values form state object and add through assign
         username: "",
-        admin: true
+        admin: false
       }
     });
   }
@@ -49,7 +49,7 @@ class New extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.register(this.state.credentials, this.props.history);
+    this.props.addMember(this.state.credentials, this.props.history);
   }
 
   render() {
@@ -57,19 +57,19 @@ class New extends Component {
       <div>
         <form className={css(styles.form)} onSubmit={this.onSubmit}>
           <div className={css(styles.div)}>
-            <label>Team name</label>
+            <label>Member name</label>
             <input
               onChange={this.onInputChange}
               className={css(styles.input)}
               type="text"
-              placeholder="Type your team name here"
+              placeholder="Type the username here"
               name="username"
               value={this.state.credentials.username}
               required
             />
           </div>
           <div className={css(styles.div)}>
-            <label>Email</label>
+            <label>Email Address</label>
             <input
               onChange={this.onInputChange}
               className={css(styles.input)}
